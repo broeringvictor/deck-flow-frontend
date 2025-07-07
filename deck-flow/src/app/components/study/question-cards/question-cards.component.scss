@@ -1,0 +1,76 @@
+// Container que organiza as respostas em uma coluna vertical
+.answers-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; // Espaçamento limpo entre os botões
+  margin-top: 32px;
+  margin-bottom: 20px;
+}
+
+// Estilo do botão de resposta
+.answer-button {
+  height: auto; // Altura automática para acomodar textos longos
+  min-height: 48px; // Altura mínima para um bom alvo de toque
+  padding: 14px 16px;
+  justify-content: flex-start; // Alinha o conteúdo do botão à esquerda
+  text-align: left;
+  line-height: 1.5;
+  white-space: normal; // Permite que o texto quebre em várias linhas
+  transition: background-color 0.3s, border-color 0.3s;
+  border-radius: 8px;
+
+  .answer-prefix {
+    font-weight: 500;
+    margin-right: 8px;
+  }
+}
+
+// --- Estilos de Feedback ---
+
+// Estilo para a resposta selecionada pelo usuário
+.answer-button.selected {
+  border-color: #673ab7; // Cor roxa do Angular Material (Deep Purple)
+  border-width: 2px;
+}
+
+// Estilo para a resposta correta após a submissão
+.answer-button.correct {
+  background-color: #dcedc8; // Verde claro
+  border-color: #4caf50; // Verde
+  color: #2e7d32;
+}
+
+// Estilo para a resposta incorreta após a submissão
+.answer-button.incorrect {
+  background-color: #ffcdd2; // Vermelho claro
+  border-color: #f44336; // Vermelho
+  color: #c62828;
+}
+
+// --- Seção de Submissão Responsiva ---
+
+.submission-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap; // Permite que os itens quebrem para a próxima linha
+
+  .quality-field {
+    flex: 1 1 200px; // Flex-grow, flex-shrink, flex-basis
+  }
+
+  .submit-button {
+    flex: 1 1 auto;
+  }
+}
+
+// --- Imagem Responsiva ---
+.card-image {
+  width: 100%;
+  margin-top: 32px;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+
+}

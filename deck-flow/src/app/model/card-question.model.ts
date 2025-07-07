@@ -4,11 +4,11 @@ export interface CardQuestion {
   id: string;
   question: string;
   correctAnswers: string;
-  incorrectAnswersA: string;
-  incorrectAnswersB: string;
-  incorrectAnswersC: string;
-  incorrectAnswersD: string;
-  image: string | null;
+  incorrectAnswersA?: string | null;
+  incorrectAnswersB?: string | null;
+  incorrectAnswersC?: string | null;
+  incorrectAnswersD?: string | null;
+  image?: string;
   lastUpdated: Date;
   createDate: Date;
   categoryId: string;

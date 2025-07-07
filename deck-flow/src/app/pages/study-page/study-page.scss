@@ -1,0 +1,47 @@
+// study-page.scss
+
+// Container principal da página
+.study-container {
+  padding: 24px;
+  max-width: 900px;
+  margin: auto; // Centraliza o container na página
+}
+
+// Estiliza o formulário de início
+.start-form {
+  display: flex;
+  flex-wrap: wrap; // Permite que os itens quebrem para a próxima linha em telas pequenas
+  align-items: flex-start;
+  gap: 16px; // Espaço entre os campos do formulário
+}
+
+// Estilo para o botão de loading
+button[mat-flat-button] {
+  .mat-progress-spinner {
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  // Alinha o spinner e o texto verticalmente
+  span, .mat-progress-spinner {
+    vertical-align: middle;
+  }
+}
+
+// Container da lista de cards
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; // Espaço vertical entre cada card
+  margin-top: 32px;
+}
+
+// Estilo para a mensagem de estado vazio
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 32px;
+}

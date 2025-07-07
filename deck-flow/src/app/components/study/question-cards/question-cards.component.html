@@ -1,0 +1,45 @@
+@if (questionCard(); as card) {
+  <mat-card class="question-card">
+    <mat-card-header>
+      <h2 mat-card-title>{{ card.question }}</h2>
+    </mat-card-header>
+    @if (card.image) {
+      <img mat-card-image src="{{ card.image }}" alt="Imagem da questão" class="card-image">
+    }
+
+    <mat-card-content>
+      <div class="answers-container">
+        @for (answer of shuffledAnswers(); track $index) {
+          <button
+            matButton
+            class="answer-button"
+            (click)="selectAnswer(answer)"
+            [class.selected]="selectedAnswer() === answer"
+            [class.correct]="showFeedback() && answer === correctAnswer()"
+            [class.incorrect]="showFeedback() && selectedAnswer() === answer && answer !== correctAnswer()"
+            [disabled]="isSubmitting()">
+            <span class="answer-prefix">{{ String.fromCharCode(65 + $index) }})</span>
+            <span>{{ answer }}</span>
+          </button>
+        }
+      </div>
+
+      @if (selectedAnswer()) {
+        <div class="submission-section">
+          <mat-form-field appearance="outline" class="quality-field">
+            <mat-label>Qualidade da resposta</mat-label>
+            <mat-select [formControl]="qualityControl">
+              @for (option of answerQualityOptions; track option.value) {
+                <mat-option [value]="option.value">{{ option.label }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" class="submit-button" (click)="onSubmit()" [disabled]="!qualityControl.valid || isSubmitting()">
+            Confirmar
+          </button>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+}
